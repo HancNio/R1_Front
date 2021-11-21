@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/web.png">
+    <link rel="icon" type="image/png" href="assets/images/web.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Registrarse</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    <!--  Fuentes - Bootstrap   -->
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!--        CSS              -->
+    <link href="assets/css/registrar.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="col-sm-8">
+
+            <div class="wizard-container">
+
+                <div class="Formulario">
+                    <form action="javascript:guardarUsuarios()" id="formularioReg">
+
+                        <div class="wizard-header">
+                            <img src="assets/images/superiorReg.jpg" class="imgNav" title="" />
+                        </div>
+
+                        <div class="text-nav">
+                            Crear usuario nuevo
+                        </div>
+
+                        <div class="tab-content">
+                            <div>
+                                <h3 class="info-text"> Por favor registre su información básica</h3>
+
+                                <div class="col-sm-12 col-sm-offset-1">
+                                    <div class="form-group">
+                                        <label>Correo Electronico <small>(obligatorio)</small></label>
+                                        <input name="email" id="email" type="email" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12 col-sm-offset-1">
+                                    <div class="form-group">
+                                        <label>Contraseña <small>(obligatorio)</small></label>
+                                        <input name="password" id="password" type="text" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12 col-sm-offset-1">
+                                    <div class="form-group">
+                                        <label>Confirme su contraseña <small>(obligatorio)</small></label>
+                                        <input name="password_confirm" id="password_confirm" type="text" class="form-control" >
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12 col-sm-offset-1">
+                                    <div class="form-group">
+                                        <label>Nombres <small>(obligatorio)</small></label>
+                                        <input name="name" id="name" type="text" class="form-control">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="wizard-footer height-wizard">
+                            <div class="btnReg">
+                                <input type="submit" class="btn btn-wd btn-sm" name="registrar" id="registrar" value="Registrar" />
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </form>
+                </div>
+            </div> 
+        </div>
+    </div> 
+
+    <div class="footer">
+        <div class="container">
+            ¿Ya estás registrado? <a href="index.html">&nbspClic aqui para ingresar &nbsp<i
+                    class="fas fa-sign-in-alt heart"></i></a>
+        </div>
+    </div>
+
+    </div>
+
+    <!--   JS   -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+  <script src="assets/js/traduccionesValidate.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+  <script src="assets/js/funciones.js"></script>
+</body>
+</html>
