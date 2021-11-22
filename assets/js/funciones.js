@@ -45,7 +45,7 @@ function guardarUsuarios() {
     var email = $("#email").val();
 
     $.ajax({
-        url: "http://localhost:8081/api/user/" + email,
+        url: "http://152.70.222.238:8081/api/user/" + email,
         type: "GET",
         datatype: "JSON",
         success: function (response) {
@@ -71,7 +71,7 @@ function guardarUsuarios() {
                     contentType: "application/json; charset=utf-8",
                     dataType: 'JSON',
                     data: JSON.stringify(var1),
-                    url: "http://localhost:8081/api/user/new",
+                    url: "http://152.70.222.238:8081/api/user/new",
                     success: function (response) {
                         console.log(response);
                         console.log("Se guardo correctamente");
@@ -129,13 +129,13 @@ function traerUsuarios() {
     var password = $("#password").val();
 
     $.ajax({
-        url: "http://localhost:8081/api/user/" + email,
+        url: "http://152.70.222.238:8081/api/user/" + email,
         type: "GET",
         datatype: "JSON",
         success: function (response) {
             if (response == true) {
                 $.ajax({
-                    url: "http://localhost:8081/api/user/" + email + "/" + password,
+                    url: "http://152.70.222.238:8081/api/user/" + email + "/" + password,
                     type: "GET",
                     datatype: "JSON",
                     success: function (response) {
