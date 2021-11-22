@@ -40,35 +40,45 @@ $("#registrar").click(function () {
 
 //// Post
 function guardarUsuarios() {
-    let var1 = {
-        email: $("#email").val(),
-        password: $("#password").val(),
-        name: $("#name").val()
-    };
+    var email = $("#email").val();
 
     $.ajax({
-        type: 'POST',
-        contentType: "application/json; charset=utf-8",
-        dataType: 'JSON',
-        data: JSON.stringify(var1),
-
-        url: "http://localhost:8080/api/user/new",
-
-
+        url: "http://152.70.222.238:8081/api/user/"+email,
+        type: "GET",
+        datatype: "JSON",
         success: function (response) {
-            console.log(response);
-            console.log("Se guardo correctamente");
-            swal("Validación","Cuenta creada de forma correcta","success");
-
+            console.log(response)
+            if (response == true) {
+                swal("El usuario ya existe, valide los datos o ingrese al sistema por el Login","Validación Incorrecta", "error");
+            } else {
+                let var1 = {
+                    email: $("#email").val(),
+                    password: $("#password").val(),
+                    name: $("#name").val()
+                };              
+                $.ajax({
+                    type: 'POST',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: 'JSON',
+                    data: JSON.stringify(var1),
+                    url: "http://152.70.222.238:8081/api/user/new",
+                    success: function (response) {
+                        console.log(response);
+                        console.log("Se guardo correctamente");
+                        swal("Cuenta creada de forma correcta","Validación Correcta", "success");
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        swal("No se guardo correctamente, valido los campos","Validación Incorrecta","error");
+                    }
+                });
+            }            
         },
-
         error: function (jqXHR, textStatus, errorThrown) {
-            window.location.reload()
-            swal("Validación","No se guardo correctamente","error");
+            swal("Validación","Error en la aplicacion, comuniquese conel administrador del sistema","error");
         }
     });
-
 } //// fin Post
+
 
 
 
@@ -99,27 +109,24 @@ $("#login").click(function () {
     let password = $("#password").val()
 })// fin validaciones
 
-//// GET
+//// GET 
 function traerUsuarios() {
     var email = $("#email").val();
-    var password = $("#password").val();
 
     $.ajax({
-        url: "http://localhost:8080/api/user/all",
+        url: "http://152.70.222.238:8081/api/user/"+email,
         type: "GET",
         datatype: "JSON",
-        data: JSON.stringify(email),
-        success: function () {
-            if (form.email.value == "#email" && form.password.value == "#password") {
-                swal("Validación","Bienvenido", "success");
-        
+        success: function (response) {
+            console.log(response)
+            if (response == true) {                
+                swal("Bienvenido "+email, "Validación Correcta", "success");
             } else {
-                swal("Validación","El usuario no existe, por favor ingrese los datos correctos", "error");
-            }
+                swal("El usuario no existe, por favor valide los datos","Validación Incorrecta", "error");
+            }            
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            swal("Validación","Error en la aplicacion, comuniquese conel administrador del sistema","error");
         }
     });
-     
-    
-
-
 }
